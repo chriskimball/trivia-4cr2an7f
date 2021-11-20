@@ -1,5 +1,9 @@
 
 
 .hidden{
-    display:hidden;
+    display:none;
+}
+
+#questions button {
+    display: block;
 }
