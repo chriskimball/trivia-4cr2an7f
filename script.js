@@ -1,3 +1,49 @@
+// // Notes from saturday class
+// var questionsEl = document.getElementById('questions');
+// var questions = [
+//     {
+//         question:"What's your favorite color?",
+//         multipleChoiceOptions: [
+//             "Red",
+//             "Yellow",
+//             "Green",
+//             "Blue"
+//         ],
+//         correct: "Red"
+//     }
+// ];
+
+// var questionIndexPointer = 0;
+
+
+// function answerQuestion(event) {
+
+//     // Which answer was picked (which button)
+//     var buttonEl = event.target;
+
+//     // data attribute from html elements to match user's choice with the answer they picked
+//     var answer = buttonEl.dataset.answer;
+
+//     // Compare 'answer' to the "current question"
+//     var currentQuestion = questions[questionPointer]
+    
+//     if (answer === currentQuestion.correct) {
+//         console.log("Correct!")
+//     } else {
+//         console.log("Wrong, the answer was ", currentQuestion.correct)
+//     }
+
+//     // if we have no questions left we 
+//         // THEN end the game
+//     // ELSE serve next question
+//     console.log(answer)
+
+//     }
+
+// questionsEl.addEventListener( 'click' , answerQuestion);
+
+
+
 // TODO: Run back through pseudocode be very specific
 
 // test one thing at a time, e.g. button click console log button click
@@ -10,6 +56,7 @@ var questionIndexPointer = 0;
 
 // TODO: Pointers to HTML elements
 
+// TODO: 
 // array of objects
 var questions = [
     {
