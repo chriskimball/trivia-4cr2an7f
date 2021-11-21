@@ -15,7 +15,6 @@ var button4 = document.getElementById('button4');
 var score = 0;
 var questionIndexPointer = 0;
 var answer = undefined;
-console.log(answer)
 var timer;
 var timeLeft;
 
@@ -60,7 +59,7 @@ var questions = [
             "12"
         ],
         // refers to array index 1 above it
-        correctAnswer: 12
+        correctAnswer: "12"
     }
 ]
 
@@ -88,21 +87,21 @@ function startTimer() {
 
 // TODO: function that starts the game
 function startGame() {
-    
+    score=0;
     // disables start button from being double clicked
     startButton.disabled = true;
     // starts timer
     startTimer()
-    questionIndexPointer = 0
+    questionIndexPointer = 0;
     // hide welcome message
-    welcomeEl.className = "hidden"
+    welcomeEl.className = "hidden";
     renderNextQuestion()
 }
 
 // TODO: Renders the next question on the screen
 function renderNextQuestion() {
     questionsEl.className= "displayed";
-    questionsEl.children[0].textContent = questions[questionIndexPointer].questionName
+    questionsEl.children[0].textContent = questions[questionIndexPointer].questionName;
     for (i=0; i< (questionsEl.children.length-1); i++){
         questionsEl.children[(i+1)].textContent = questions[questionIndexPointer].answerOptions[(i)];
     }
@@ -117,16 +116,29 @@ function answerQuestion(event) {
         return
     }
     
-    var currentQuestion = questions[questionIndexPointer]
-    var buttonEl = event.target
+    var currentQuestion = questions[questionIndexPointer];
+    var buttonEl = event.target;
 
     // Comparing user's answer that was selected to the correct answer
     if (buttonEl.textContent === currentQuestion.correctAnswer) {
-        console.log("Correct!")
+        score++;
+        console.log("Correct!");
+        console.log("Current Score: ",score);
     } else {
-        console.log("Wrong, the answer was ", currentQuestion.correctAnswer)
-        timeLeft= timeLeft-10;
-        // if (timeLeft=0 logic to not go negative
+        console.log("Wrong, the answer was ", currentQuestion.correctAnswer);
+        console.log("Current Score: ",score);
+        
+        // This if logic handles decreasing the time left when incorrect answer has been picked.
+        if ( timeLeft > 10 ){
+            timeLeft= timeLeft-10;
+            timerEl.textContent = timeLeft;
+        } 
+        
+        else if (timeLeft < 10 ) {
+            timeLeft = timeLeft-timeLeft;
+            timerEl.textContent = timeLeft;
+            clearInterval(timer);
+        }
     }
 
     if (questionIndexPointer !== 2){
