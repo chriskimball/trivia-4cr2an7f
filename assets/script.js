@@ -1,4 +1,5 @@
 // declaring global variables
+var welcomeEl = document.getElementById('welcome')
 var questionsEl = document.getElementById('questions');
 var timerEl = document.getElementById("timer");
 var startButton = document.getElementById("start-button");
@@ -7,11 +8,11 @@ var button2 = document.getElementById('button2')
 var button3 = document.getElementById('button3')
 var button4 = document.getElementById('button4')
 
-var timeLeft = 100;
 var score = 0;
 var questionIndexPointer = 0;
 
-
+var timer;
+var timeLeft;
 
 
 
@@ -39,14 +40,14 @@ var questions = [
         correctAnswer: 0
     },
     {
-        questionName: "What color is the sky?",
+        questionName: "What is your favorite color?",
         answerOptions: [
-            "Blue",
-            "Boolean",
-            "Alert",
-            "Number"
+            "Red",
+            "Green",
+            "Yellow",
+            "Plad"
         ],
-        // refers to array index 0 above it
+        // refers to array index 1 above it
         correctAnswer: 0
     }
 ]
@@ -59,33 +60,38 @@ var questions = [
 // const
 
 
-// TODO: only purpose is to start timer
+// This functions only purpose is to start timer
 function startTimer() {
-    timeLeft = 100;
+    timeLeft = 10;
   
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
+    timer = setInterval(function () {
       timeLeft--;
       timerEl.textContent = timeLeft;
   
       if (timeLeft === 0) {
-        clearInterval(timeInterval);
-        
+        clearInterval(timer);
+        startButton.disabled= false;
+        welcomeEl.className = "displayed"
       }
-      if (timeLeft < 0) {
-          clearInterval(timeInterval);
-          timerEl.textContent = 0;
-      }
-      
+   
     }, 1000);
     
 }
 
+
 // TODO: function that starts the game
-function startGame() { 
-    // hide welcome message
+function startGame() {
+    welcomeEl.className += "hidden"
+    
+    startButton.disabled = true;
+
+
     // start timer
+    startTimer()
+
+    // hide welcome message
     questions[questionIndexPointer]
+
 }
 
 // TODO: Renders the next question on the screen
@@ -143,7 +149,7 @@ function init () {
 // when we click button, start interval timeLeft, serve question 1
 // withinGame function that resets global timer and score variables to their initial values
 
-startButton.addEventListener( "click" , startTimer );
+startButton.addEventListener( "click" , startGame );
 
 
 
