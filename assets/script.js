@@ -67,16 +67,16 @@ var questions = [
 
 // This functions only purpose is to start timer
 function startTimer() {
-    timeLeft = 10;
+    timeLeft = 100;
   
     timer = setInterval(function () {
       timeLeft--;
       timerEl.textContent = timeLeft;
   
-      if (timeLeft === 0) {
+      if (timeLeft <= 0) {
         clearInterval(timer);
         startButton.disabled= false;
-        
+                
         questionsEl.className= "hidden";
         scoreLogEl.className="displayed";
       }
@@ -97,7 +97,6 @@ function startGame() {
     // hide welcome message
     welcomeEl.className = "hidden"
     renderNextQuestion()
-
 }
 
 // TODO: Renders the next question on the screen
@@ -118,21 +117,18 @@ function answerQuestion(event) {
         return
     }
     
+    var currentQuestion = questions[questionIndexPointer]
     var buttonEl = event.target
-    var answer = questions[questionIndexPointer].correctAnswer;
 
-    console.log(buttonEl.textContent)
-    console.log(answer)
-    // Compare 'answer' to the "current question"
-    // var currentQuestion = questions[questionIndexPointer]
-    
-    // if (answer === currentQuestion.correct) {
-    //     console.log("Correct!")
-    // } else {
-    //     console.log("Wrong, the answer was ", currentQuestion.correct)
-    // }
-    
-    // console.log(buttonClicked)
+    // Comparing user's answer that was selected to the correct answer
+    if (buttonEl.textContent === currentQuestion.correctAnswer) {
+        console.log("Correct!")
+    } else {
+        console.log("Wrong, the answer was ", currentQuestion.correctAnswer)
+        timeLeft= timeLeft-10;
+        // if (timeLeft=0 logic to not go negative
+    }
+
     if (questionIndexPointer !== 2){
         console.log("questionIndexPointer: ", questionIndexPointer);
         questionIndexPointer++;
