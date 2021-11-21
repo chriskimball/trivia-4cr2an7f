@@ -1,12 +1,16 @@
 // declaring global variables
 var welcomeEl = document.getElementById('welcome')
 var questionsEl = document.getElementById('questions');
-var timerEl = document.getElementById("timer");
-var startButton = document.getElementById("start-button");
-var button1 = document.getElementById('button1')
-var button2 = document.getElementById('button2')
-var button3 = document.getElementById('button3')
-var button4 = document.getElementById('button4')
+var timerEl = document.getElementById('timer');
+var scoreLogEl = document.getElementById('score-logger');
+
+var startButton = document.getElementById('start-button');
+var logButton = document.getElementById('');
+
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
+var button3 = document.getElementById('button3');
+var button4 = document.getElementById('button4');
 
 var score = 0;
 var questionIndexPointer = 0;
@@ -72,6 +76,7 @@ function startTimer() {
         clearInterval(timer);
         startButton.disabled= false;
         welcomeEl.className = "displayed"
+        questionsEl.className= "hidden";
       }
    
     }, 1000);
@@ -81,22 +86,34 @@ function startTimer() {
 
 // TODO: function that starts the game
 function startGame() {
-    welcomeEl.className += "hidden"
     
+    // disables start button from being double clicked
     startButton.disabled = true;
-
-
-    // start timer
+    // starts timer
     startTimer()
-
+    questionIndexPointer = 0
     // hide welcome message
-    questions[questionIndexPointer]
+    welcomeEl.className = "hidden"
+    renderNextQuestion()
 
 }
 
 // TODO: Renders the next question on the screen
 function renderNextQuestion() {
-    
+    questionsEl.className= "displayed";
+    console.log(questionsEl)
+    questionsEl.children[0].textContent = questions[questionIndexPointer].questionName
+    for (i=1; i<5; i++){
+        questionsEl.children[i].textContent = questions[questionIndexPointer].answerOptions[(i-1)]
+    }
+
+    if (questionIndexPointer !== 2){
+        questionIndexPointer++;
+        console.log(questionIndexPointer);
+    } else {
+        return
+    }
+
 }
 
 
@@ -112,7 +129,8 @@ function endGame() {
 
 
 function backToWelcome() {
-    
+    welcomeEl.className = "displayed"
+
 }
 
 // TODO: Activity 26 from saturday has helpful info
