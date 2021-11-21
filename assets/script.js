@@ -14,13 +14,10 @@ var button4 = document.getElementById('button4');
 
 var score = 0;
 var questionIndexPointer = 0;
-
+var answer = undefined;
+console.log(answer)
 var timer;
 var timeLeft;
-
-
-
-// TODO: Run back through pseudocode be very specific
 
 // test one thing at a time, e.g. button click console log button click
 // every step forward console log it and make sure you are hitting that step then move to next forward
@@ -36,12 +33,12 @@ var questions = [
         questionName: "What color is the sky?",
         answerOptions: [
             "Blue",
-            "Boolean",
+            "Red",
             "Alert",
             "Number"
         ],
         // refers to array index 0 above it
-        correctAnswer: 0
+        correctAnswer: "Blue"
     },
     {
         questionName: "What is your favorite color?",
@@ -52,16 +49,20 @@ var questions = [
             "Plad"
         ],
         // refers to array index 1 above it
-        correctAnswer: 0
+        correctAnswer: "Red"
+    },
+    {
+        questionName: "How many people have landed on the moon?",
+        answerOptions: [
+            "1",
+            "2",
+            "3",
+            "12"
+        ],
+        // refers to array index 1 above it
+        correctAnswer: 12
     }
 ]
-
-
-// variable definitions
-// var 
-// let
-// // consistent variable that will not change
-// const
 
 
 // This functions only purpose is to start timer
@@ -75,8 +76,9 @@ function startTimer() {
       if (timeLeft === 0) {
         clearInterval(timer);
         startButton.disabled= false;
-        welcomeEl.className = "displayed"
+        
         questionsEl.className= "hidden";
+        scoreLogEl.className="displayed";
       }
    
     }, 1000);
@@ -101,25 +103,46 @@ function startGame() {
 // TODO: Renders the next question on the screen
 function renderNextQuestion() {
     questionsEl.className= "displayed";
-    console.log(questionsEl)
     questionsEl.children[0].textContent = questions[questionIndexPointer].questionName
-    for (i=1; i<5; i++){
-        questionsEl.children[i].textContent = questions[questionIndexPointer].answerOptions[(i-1)]
+    for (i=0; i< (questionsEl.children.length-1); i++){
+        questionsEl.children[(i+1)].textContent = questions[questionIndexPointer].answerOptions[(i)];
     }
-
-    if (questionIndexPointer !== 2){
-        questionIndexPointer++;
-        console.log(questionIndexPointer);
-    } else {
-        return
-    }
-
 }
 
 
 // TODO: this function will handle serving the next question and increment score
-function answerQuestion() {
+function answerQuestion(event) {
     
+    // checks to make sure user clicks a button, if not a button then the next question will be rendered
+    if (!event.target.matches("button")){
+        return
+    }
+    
+    var buttonEl = event.target
+    var answer = questions[questionIndexPointer].correctAnswer;
+
+    console.log(buttonEl.textContent)
+    console.log(answer)
+    // Compare 'answer' to the "current question"
+    // var currentQuestion = questions[questionIndexPointer]
+    
+    // if (answer === currentQuestion.correct) {
+    //     console.log("Correct!")
+    // } else {
+    //     console.log("Wrong, the answer was ", currentQuestion.correct)
+    // }
+    
+    // console.log(buttonClicked)
+    if (questionIndexPointer !== 2){
+        console.log("questionIndexPointer: ", questionIndexPointer);
+        questionIndexPointer++;
+    } else {
+        console.log("questionIndexPointer: ", questionIndexPointer);
+        return
+    }
+    
+    console.log("questionIndexPointer: ", questionIndexPointer);
+    renderNextQuestion()
 }
 
 // TODO: this function stop the timer, hide question, display input to enter their high score on leader board
@@ -129,7 +152,8 @@ function endGame() {
 
 
 function backToWelcome() {
-    welcomeEl.className = "displayed"
+    welcomeEl.className = "displayed";
+    scoreLogEl.className= "hidden";
 
 }
 
@@ -156,12 +180,6 @@ function init () {
 }
 
 
-
-
-
-
-
-
 // TODO: button to start game
 
 // when we click button, start interval timeLeft, serve question 1
@@ -169,7 +187,9 @@ function init () {
 
 startButton.addEventListener( "click" , startGame );
 
+questionsEl.addEventListener( "click" , answerQuestion );
 
+scoreLogEl.addEventListener( "click" , backToWelcome )
 
 // TODO: button to take look at high scores
 
