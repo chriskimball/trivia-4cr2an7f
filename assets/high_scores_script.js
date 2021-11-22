@@ -1,3 +1,10 @@
+var leaderboardEl = document.getElementById('leaderboard')
+var backBtnEl = document.getElementById('backBtn')
+var clearBtnEl = document.getElementById('clearBtn')
+
+var leaderboard = []
+
+
 function init() {
     // TODO: What is the purpose of the following line of code?
     // this will parse the todo array from local storage from string into an array
@@ -16,26 +23,29 @@ function init() {
 
 init()
 
-function submitLeaderboard(event) {
-    if (!event.target.matches("button")){
+function backToWelcome(event) {
+    if (!event.target.matches("#backBtn")){
         return
     }
     event.preventDefault();
-    var userStats = {
-        initials: initials.value,
-        timeLeft: timeLeft,
-        answeredCorrectly: correct,
-        totalScore: finalScore
-      }
+    // var userStats = {
+    //     initials: initials.value,
+    //     timeLeft: timeLeft,
+    //     answeredCorrectly: correct,
+    //     totalScore: finalScore
+    //   }
       
-      leaderboard = leaderboard.concat(userStats)
+    //   leaderboard = leaderboard.concat(userStats)
       // Set new submission to local storage 
       localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
     
-      window.location.href='high_scores.html'
+      window.location.href='index.html'
 }
 
-// TODO: render leaderboard upon submission and leaderboard page load
+leaderboardEl.addEventListener( "click" , backToWelcome)
+
+
+// // TODO: render leaderboard upon submission and leaderboard page load
 // function renderLeaderboard() {
 //         // TODO: Describe the functionality of the following two lines of code.
 //         // defines the todo list's inner html as string values
