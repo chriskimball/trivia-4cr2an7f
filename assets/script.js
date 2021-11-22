@@ -4,6 +4,7 @@ var questionsEl = document.getElementById('questions');
 var timerEl = document.getElementById('timer');
 var scoreLogEl = document.getElementById('score-logger');
 var initials = document.getElementById('initials')
+document.getElementById('initials').setAttribute('maxlength',3)
 var finalScoreEl = document.getElementById('score-value')
 var correctEl = document.getElementById('correctly-answered')
 var finalTimeEl = document.getElementById('final-time')
@@ -214,18 +215,25 @@ function submitLeaderboard(event) {
     }
     event.preventDefault();
     
-    var userStats = {
-        initials: initials.value,
-        timeLeft: timeLeft,
-        answeredCorrectly: correct,
-        totalScore: finalScore
-      }
-      
-      leaderboard = leaderboard.concat(userStats)
-      // Set new submission to local storage 
-      localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
+    if (initials.value.length === 0){
+        alert("Please enter your initials.")
+        return
+    } else 
+    {
+        var userStats = {
+            initials: initials.value,
+            timeLeft: timeLeft,
+            answeredCorrectly: correct,
+            totalScore: finalScore
+        }
+        
+        leaderboard = leaderboard.concat(userStats)
+        // Set new submission to local storage 
+        localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
+        window.location.href='high_scores.html'
+    }
     
-    //   window.location.href='high_scores.html'
+    
 }
 
 // Initial actions on page load
