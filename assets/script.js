@@ -3,6 +3,8 @@ var welcomeEl = document.getElementById('welcome')
 var questionsEl = document.getElementById('questions');
 var timerEl = document.getElementById('timer');
 var scoreLogEl = document.getElementById('score-logger');
+var initials = document.getElementById('initials')
+var finalScore = document.getElementById('score-value')
 
 var startButton = document.getElementById('start-button');
 var logButton = document.getElementById('');
@@ -182,7 +184,7 @@ function answerQuestion(event) {
         questionIndexPointer++;
         
     } else {
-        endGame()
+        endGame()    
         console.log("questionIndexPointer: ", questionIndexPointer);
         return
     }
@@ -193,11 +195,13 @@ function answerQuestion(event) {
 
 // TODO: this function stop the timer, hide question, display input to enter their high score on leader board
 function endGame() {
+    finalScore.textContent = score + timeLeft
+    console.log(finalScore)
     clearInterval(timer);
     questionsEl.className= "hidden";
     scoreLogEl.className="displayed";
     startButton.disabled = false;
-    return score
+    return
 }
 
 console.log("Your current score is: ",score)
@@ -212,6 +216,9 @@ function submitLeaderboard(event) {
     if (!event.target.matches("button")){
         return
     }
+    event.preventDefault();
+    
+
     var buttonEl = event.target;
 
     backToWelcome()
