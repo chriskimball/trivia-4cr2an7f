@@ -60,6 +60,39 @@ var questions = [
         ],
         // refers to array index 1 above it
         correctAnswer: "12"
+    },
+    {
+        questionName: "What color is the sky?",
+        answerOptions: [
+            "Blue",
+            "Red",
+            "Alert",
+            "Number"
+        ],
+        // refers to array index 0 above it
+        correctAnswer: "Blue"
+    },
+    {
+        questionName: "What is your favorite color?",
+        answerOptions: [
+            "Red",
+            "Green",
+            "Yellow",
+            "Plad"
+        ],
+        // refers to array index 1 above it
+        correctAnswer: "Red"
+    },
+    {
+        questionName: "How many people have landed on the moon?",
+        answerOptions: [
+            "1",
+            "2",
+            "3",
+            "12"
+        ],
+        // refers to array index 1 above it
+        correctAnswer: "12"
     }
 ]
 
@@ -74,10 +107,8 @@ function startTimer() {
   
       if (timeLeft <= 0) {
         clearInterval(timer);
-        startButton.disabled= false;
-                
-        questionsEl.className= "hidden";
-        scoreLogEl.className="displayed";
+        timeLeft=0
+        endGame()
       }
    
     }, 1000);
@@ -97,9 +128,13 @@ function startGame() {
     welcomeEl.className = "hidden";
     renderNextQuestion()
 }
-
+console.log(questions.length)
 // TODO: Renders the next question on the screen
 function renderNextQuestion() {
+    if (questionIndexPointer === (questions.length)){
+        endGame()
+        return
+    }
     questionsEl.className= "displayed";
     questionsEl.children[0].textContent = questions[questionIndexPointer].questionName;
     for (i=0; i< (questionsEl.children.length-1); i++){
@@ -118,7 +153,7 @@ function answerQuestion(event) {
     
     var currentQuestion = questions[questionIndexPointer];
     var buttonEl = event.target;
-
+    
     // Comparing user's answer that was selected to the correct answer
     if (buttonEl.textContent === currentQuestion.correctAnswer) {
         score++;
@@ -135,16 +170,19 @@ function answerQuestion(event) {
         } 
         
         else if (timeLeft < 10 ) {
-            timeLeft = timeLeft-timeLeft;
-            timerEl.textContent = timeLeft;
             clearInterval(timer);
+            timeLeft = 0;
+            timerEl.textContent = timeLeft;
+            endGame()
         }
     }
 
-    if (questionIndexPointer !== 2){
+    if (questionIndexPointer !== questions.length){
         console.log("questionIndexPointer: ", questionIndexPointer);
         questionIndexPointer++;
+        
     } else {
+        endGame()
         console.log("questionIndexPointer: ", questionIndexPointer);
         return
     }
@@ -155,10 +193,14 @@ function answerQuestion(event) {
 
 // TODO: this function stop the timer, hide question, display input to enter their high score on leader board
 function endGame() {
-    
+    clearInterval(timer);
+    questionsEl.className= "hidden";
+    scoreLogEl.className="displayed";
+    startButton.disabled = false;
+    return score
 }
 
-
+console.log("Your current score is: ",score)
 function backToWelcome() {
     welcomeEl.className = "displayed";
     scoreLogEl.className= "hidden";
@@ -166,8 +208,13 @@ function backToWelcome() {
 }
 
 // TODO: Activity 26 from saturday has helpful info
-function submitLeaderboard() {
-    
+function submitLeaderboard(event) {
+    if (!event.target.matches("button")){
+        return
+    }
+    var buttonEl = event.target;
+
+    backToWelcome()
 }
 
 // TODO: render leaderboard upon submission and leaderboard page load
@@ -197,7 +244,7 @@ startButton.addEventListener( "click" , startGame );
 
 questionsEl.addEventListener( "click" , answerQuestion );
 
-scoreLogEl.addEventListener( "click" , backToWelcome )
+scoreLogEl.addEventListener( "click" , submitLeaderboard )
 
 // TODO: button to take look at high scores
 
