@@ -221,7 +221,7 @@ function submitLeaderboard(event) {
     } else 
     {
         var userStats = {
-            initials: initials.value,
+            initials: initials.value.toUpperCase(),
             timeLeft: timeLeft,
             answeredCorrectly: correct,
             totalScore: finalScore
@@ -252,8 +252,6 @@ function init() {
     // renderTodos();
     console.log(leaderboard)
   }
-
-
 
 
 // when we click button, start interval timeLeft, serve question 1
