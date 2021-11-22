@@ -22,6 +22,7 @@ var questionIndexPointer = 0;
 var answer = undefined;
 var timer;
 var timeLeft;
+var finalScore;
 
 // test one thing at a time, e.g. button click console log button click
 // every step forward console log it and make sure you are hitting that step then move to next forward
@@ -121,7 +122,7 @@ function startTimer() {
 }
 
 
-// TODO: function that starts the game
+// This function that starts the game
 function startGame() {
     correct=0;
     initials.value= "";
@@ -134,7 +135,8 @@ function startGame() {
     welcomeEl.className = "hidden";
     renderNextQuestion()
 }
-// TODO: Renders the next question on the screen
+
+// Renders the next question on the screen
 function renderNextQuestion() {
     if (questionIndexPointer === (questions.length)){
         endGame()
@@ -148,7 +150,7 @@ function renderNextQuestion() {
 }
 
 
-// TODO: this function will handle serving the next question and increment score
+// This function will handle serving the next question and increment score
 function answerQuestion(event) {
     
     // checks to make sure user clicks a button, if not a button then the next question will be rendered
@@ -186,7 +188,7 @@ function answerQuestion(event) {
     renderNextQuestion()
 }
 
-// TODO: this function stop the timer, hide question, display input to enter their high score on leader board
+// This function stop the timer, hide question, display leaderboard input
 function endGame() {
     finalScore = correct * timeLeft
     finalScoreEl.textContent = finalScore
@@ -211,6 +213,7 @@ function submitLeaderboard(event) {
         return
     }
     event.preventDefault();
+    
     var userStats = {
         initials: initials.value,
         timeLeft: timeLeft,
@@ -222,7 +225,7 @@ function submitLeaderboard(event) {
       // Set new submission to local storage 
       localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
     
-      window.location.href='high_scores.html'
+    //   window.location.href='high_scores.html'
 }
 
 // Initial actions on page load
@@ -243,64 +246,18 @@ function init() {
   }
 
 
-// TODO: button to start game
+
 
 // when we click button, start interval timeLeft, serve question 1
 // withinGame function that resets global timer and score variables to their initial values
 
 //TODO: Figure out if we can have high scores html page can use a single JS file and ignore these event listeners that don't exist on that page
 
+// clicking this button will start the game
 startButton.addEventListener( "click" , startGame );
 
 questionsEl.addEventListener( "click" , answerQuestion );
 
 scoreLogEl.addEventListener( "click" , submitLeaderboard)
 
-// TODO: button to take look at high scores
 init()
-
-
-
-// // Notes from saturday
-
-// var questions = [
-//     {
-//         question:"What's your favorite color?",
-//         multipleChoiceOptions: [
-//             "Red",
-//             "Yellow",
-//             "Green",
-//             "Blue"
-//         ],
-//         correct: "Red"
-//     }
-// ];
-
-// var questionIndexPointer = 0;
-
-
-// function answerQuestion(event) {
-
-//     // Which answer was picked (which button)
-//     var buttonEl = event.target;
-
-//     // data attribute from html elements to match user's choice with the answer they picked
-//     var answer = buttonEl.dataset.answer;
-
-//     // Compare 'answer' to the "current question"
-//     var currentQuestion = questions[questionPointer]
-    
-//     if (answer === currentQuestion.correct) {
-//         console.log("Correct!")
-//     } else {
-//         console.log("Wrong, the answer was ", currentQuestion.correct)
-//     }
-
-//     // if we have no questions left we 
-//         // THEN end the game
-//     // ELSE serve next question
-//     console.log(answer)
-
-//     }
-
-// questionsEl.addEventListener( 'click' , answerQuestion);
