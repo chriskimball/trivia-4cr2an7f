@@ -217,53 +217,15 @@ function submitLeaderboard(event) {
         answeredCorrectly: correct,
         totalScore: finalScore
       }
-      console.log(userStats)
       
       leaderboard = leaderboard.concat(userStats)
-      // TODO: Set new submission to local storage 
-      console.log(leaderboard)
+      // Set new submission to local storage 
       localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
     
       window.location.href='high_scores.html'
-    // backToWelcome()
 }
 
-
-
-// TODO: render leaderboard upon submission and leaderboard page load
-// function renderLeaderboard() {
-//         // TODO: Describe the functionality of the following two lines of code.
-//         // defines the todo list's inner html as string values
-//         // increments the number of items on your todo list to equal the todo array length
-//         todoList.innerHTML = "";
-//         todoCountSpan.textContent = todos.length;
-        
-//         // TODO: Describe the functionality of the following `for` loop.
-//         // converts todo array into list items on the todo list
-//         for (var i = 0; i < todos.length; i++) {
-//           var todo = todos[i];
-      
-//           var li = document.createElement("li");
-//           li.textContent = todo;
-//           li.setAttribute("data-index", i);
-      
-//           var button = document.createElement("button");
-//           button.textContent = "Complete ✔️";
-      
-//           li.appendChild(button);
-//           todoList.appendChild(li);
-//         }
-//       }
-// }
-
-// TODO: clear out the leaderboard from local storage
-function clearLeaderboard () {
-    
-}
-
-// TODO: initial actions on page load
-// needs to pull leaderboard from local storage
-// what else....
+// Initial actions on page load
 function init() {
     // TODO: What is the purpose of the following line of code?
     // this will parse the todo array from local storage from string into an array
@@ -286,11 +248,13 @@ function init() {
 // when we click button, start interval timeLeft, serve question 1
 // withinGame function that resets global timer and score variables to their initial values
 
+//TODO: Figure out if we can have high scores html page can use a single JS file and ignore these event listeners that don't exist on that page
+
 startButton.addEventListener( "click" , startGame );
 
 questionsEl.addEventListener( "click" , answerQuestion );
 
-scoreLogEl.addEventListener( "click" , submitLeaderboard )
+scoreLogEl.addEventListener( "click" , submitLeaderboard)
 
 // TODO: button to take look at high scores
 init()
