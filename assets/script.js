@@ -122,7 +122,6 @@ function startTimer() {
     
 }
 
-
 // This function that starts the game
 function startGame() {
     correct=0;
@@ -257,7 +256,23 @@ function init() {
 // when we click button, start interval timeLeft, serve question 1
 // withinGame function that resets global timer and score variables to their initial values
 
-//TODO: Figure out if we can have high scores html page can use a single JS file and ignore these event listeners that don't exist on that page
+// Keydown event to prevent numeric and special characters from being submitted to leaderboard
+initials.addEventListener('keydown', function (event) {
+    // Access value of pressed key with key property
+    
+    var key = event.key;
+    var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+        
+    if (alphabetNumericCharacters.includes(key)) {
+    
+        initials.textContent += event.key;
+    
+    } 
+    else if (event.key === "Backspace") {
+
+    } else (event.preventDefault())
+
+  });
 
 // clicking this button will start the game
 startButton.addEventListener( "click" , startGame );
