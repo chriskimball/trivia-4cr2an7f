@@ -115,7 +115,7 @@ function answerQuestion(event) {
 
 function startFeedbackTimer() {
         
-    feedbackTimeLeft = 3;
+    feedbackTimeLeft = 2;
     
     feedbackTimer = setInterval(function () {
         feedbackTimeLeft--;
