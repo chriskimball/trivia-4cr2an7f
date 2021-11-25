@@ -16,30 +16,34 @@
             Time Left: <span id="timer">100</span>
         </div>
     </header>
-    <div id="welcome">
-        <h1>Welcome to my quiz game.</h1>
-        <p>A fancy welcome message</p>
-        <button id="start-button">Start Quiz</button>
-    </div>
-    
-    <!-- add the click event to the div -->
-    <div id="questions" class="hidden">
-        <h2>PlaceholderText</h2>
-        <button id="button1">PlaceholderText</button>
-        <button id="button2">PlaceholderText</button>
-        <button id="button3">PlaceholderText</button>
-        <button id="button4">PlaceholderText</button>
-    </div>
-    <form id="score-logger" class="hidden">
-        <h2>All Done!</h2>
-        <p>You answered <span id="correctly-answered"></span> questions correctly!</p>
-        <p>You had <span id="final-time"></span> seconds remaining</p>
-        <p>Your final score is: <span id="score-value"></span></p>
-        <label for="initials">Enter Initials:</label>
-        <input type="text" placeholder="Enter your initials here..." id="initials" name="initials"></input>
-        <button id="submit-score">Submit</button>
-    </form>
-    <div id="feedback"></div>
+    <main>
+        <section id="welcome">
+            <h1>Welcome to my quiz game.</h1>
+            <p>A fancy welcome message</p>
+            <button id="start-button">Start Quiz</button>
+        </section>
+        
+        <!-- add the click event to the div -->
+        <section id="questions" class="hidden">
+            <h2>PlaceholderText</h2>
+            <button id="button1">PlaceholderText</button>
+            <button id="button2">PlaceholderText</button>
+            <button id="button3">PlaceholderText</button>
+            <button id="button4">PlaceholderText</button>
+        </section>
+        <section>
+            <form id="score-logger" class="hidden">
+                <h2>All Done!</h2>
+                <p>You answered <span id="correctly-answered"></span> questions correctly!</p>
+                <p>You had <span id="final-time"></span> seconds remaining</p>
+                <p>Your final score is: <span id="score-value"></span></p>
+                <label for="initials">Enter Initials:</label>
+                <input type="text" placeholder="Enter your initials here..." id="initials" name="initials"></input>
+                <button id="submit-score">Submit</button>
+            </form>
+            <div id="feedback"></div>
+        </section>
+    </main>
     <script src="./assets/question_bank.js"></script>
     <script src="./assets/script.js"></script>
 </body>
