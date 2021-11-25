@@ -96,7 +96,7 @@ function answerQuestion(event) {
             clearInterval(timer);
             timeLeft = 0;
             timerEl.textContent = timeLeft;
-            endGame()
+            return endGame()
         }
     }
 
@@ -112,7 +112,12 @@ function answerQuestion(event) {
 
 // This function stop the timer, hide question, display leaderboard input
 function endGame() {
+    if ( timeLeft === 0 ) {
+        finalScore = correct
+    } else {
     finalScore = correct * timeLeft
+}
+
     finalScoreEl.textContent = finalScore
     correctEl.textContent = correct
     finalTimeEl.textContent = timeLeft
