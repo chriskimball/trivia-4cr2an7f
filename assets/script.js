@@ -26,72 +26,7 @@ var timeLeft;
 var finalScore;
 
 
-// Array of Questions
-var questions = [
-    {
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "1",
-            "2",
-            "3",
-            "12"
-        ],
-        correctAnswer: "12"
-    },
-    {
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "1",
-            "2",
-            "3",
-            "12"
-        ],
-        correctAnswer: "12"
-    }
-]
 
-
-// This functions only purpose is to start timer
 function startTimer() {
     timeLeft = 100;
   
@@ -125,14 +60,14 @@ function startGame() {
 
 // Renders the next question on the screen
 function renderNextQuestion() {
-    if (questionIndexPointer === (questions.length)){
+    if (questionIndexPointer === (questionBank.length)){
         endGame()
         return
     }
     questionsEl.className= "displayed";
-    questionsEl.children[0].textContent = questions[questionIndexPointer].questionName;
+    questionsEl.children[0].textContent = questionBank[questionIndexPointer].questionName;
     for (i=0; i< (questionsEl.children.length-1); i++){
-        questionsEl.children[(i+1)].textContent = questions[questionIndexPointer].answerOptions[(i)];
+        questionsEl.children[(i+1)].textContent = questionBank[questionIndexPointer].answerOptions[(i)];
     }
 }
 
@@ -145,7 +80,7 @@ function answerQuestion(event) {
         return
     }
     
-    var currentQuestion = questions[questionIndexPointer];
+    var currentQuestion = questionBank[questionIndexPointer];
     var buttonEl = event.target;
     
     // Comparing user's answer that was selected to the correct answer
@@ -165,7 +100,7 @@ function answerQuestion(event) {
         }
     }
 
-    if (questionIndexPointer !== questions.length){
+    if (questionIndexPointer !== questionBank.length){
         questionIndexPointer++;
     } else {
         endGame()    
