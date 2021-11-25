@@ -5,6 +5,9 @@
     --main-border:#868689;
     --main-header:#DCDCDD;
     --work-background:#3E616E;
+    --th:#04724D;
+    --trEven:#8BC1B6;
+    --trOdd:#B8DBD9;
 }
 
 html{
@@ -34,6 +37,7 @@ header{
 }
 
 section {
+    width:100%;
     margin:25px;
     padding:25px;
 }
@@ -70,44 +74,64 @@ button:hover {
 }
 
 #questions {
-    width:25%;
+    width:400px;
     margin-left:auto;
     margin-right:auto;
+}
+
+#questions h2 {
+    margin-bottom:25px;
 }
 
 #questions button {
     display: block;
     padding: 5px 10px 5px 10px;
+    margin-left:25%;
 }
 
-
-
-
+form h2, form p {
+    padding:5px;
+}
 
 table{
     border-collapse: collapse;
+    font-size:24px;
 }
 
 th {
-    background-color:red;
+    background-color:var(--th);
+    color:var(--main-header)
+}
 
+th:hover {
+    background-color: var(--main-background);
+    color:var(--main-font);
+    border-radius:10px;
 }
 th, td {
     padding:5px;
 }
 
 tr{
-    background-color:salmon;
+    background-color:var(--trEven);
     border: 1px solid rgb(0, 0, 0);
 }
 
 tr:nth-child(odd) {
-    background-color: #30dfdf;
+    background-color: var(--trOdd);
     border-color:black;
     
 }
 
-tr:hover {background-color: yellow;}
+tr:last-child {
+    background-color:red;
+    
+}
+
+tr:hover {
+    background-color: var(--main-background);
+    border-radius:10px;
+} 
 
 .leaderboard-header {
     justify-content:center;
