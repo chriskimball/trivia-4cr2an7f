@@ -44,6 +44,12 @@ function renderLeaderboard() {
         </tr>`; 
     }
     leaderboardEl.innerHTML += htmlTemplateString
+
+    console.log(leaderboard)
+    if (leaderboard.length === 0) {
+        console.log(leaderboard)
+        leaderboardEl.className= "hidden";
+    } else {leaderboardEl.className= "displayed";}
 }
 
 // Clear out the leaderboard from local storage
@@ -55,6 +61,7 @@ function clearLeaderboard () {
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
     console.log(leaderboard)
     renderLeaderboard()
+   
 }
 
 init()
