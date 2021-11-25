@@ -30,15 +30,15 @@
         <button id="button3">PlaceholderText</button>
         <button id="button4">PlaceholderText</button>
     </div>
-    <div id="score-logger" class="hidden">
+    <form id="score-logger" class="hidden">
         <h2>All Done!</h2>
         <p>You answered <span id="correctly-answered"></span> questions correctly!</p>
         <p>You had <span id="final-time"></span> seconds remaining</p>
         <p>Your final score is: <span id="score-value"></span></p>
         <label for="initials">Enter Initials:</label>
-        <textarea id="initials" name="initials"></textarea>
+        <input type="text" placeholder="Enter your initials here..." id="initials" name="initials"></input>
         <button id="submit-score">Submit</button>
-    </div>
+    </form>
     <div id="feedback"></div>
     <script src="./assets/script.js"></script>
 </body>
