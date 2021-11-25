@@ -28,6 +28,7 @@ body{
 header{
     display:flex;
     justify-content:space-between;
+    align-items: center;
     padding:15px;
     font-weight:bold;
     font-size:24px;
@@ -103,11 +104,6 @@ th {
     color:var(--main-header)
 }
 
-th:hover {
-    background-color: var(--main-background);
-    color:var(--main-font);
-    border-radius:10px;
-}
 th, td {
     padding:5px;
 }
@@ -123,15 +119,17 @@ tr:nth-child(odd) {
     
 }
 
-/* tr:last-child {
-    background-color:red;
-    
-} */
-
 tr:hover {
-    background-color: var(--main-background);
-    border-radius:10px;
+    background-color: var(--header-background);
+    color: var(--main-header);
+    transform: scale(1.2);
+    transition:all .5s ease-in-out;
 } 
+
+th:hover {
+    background-color: var(--main-background);
+    color:var(--main-font);
+}
 
 .leaderboard-header {
     justify-content:center;
