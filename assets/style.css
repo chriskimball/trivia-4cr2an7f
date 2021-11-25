@@ -5,9 +5,9 @@
     --main-border:#868689;
     --main-header:#DCDCDD;
     --work-background:#3E616E;
-    --th:#04724D;
-    --trEven:#8BC1B6;
-    --trOdd:#B8DBD9;
+    --th:#6C6E71;
+    --trEven:#B7B8B9;
+    --trOdd:#DCDCDD;
 }
 
 html{
@@ -114,19 +114,19 @@ th, td {
 
 tr{
     background-color:var(--trEven);
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid var(--main-border);
 }
 
 tr:nth-child(odd) {
     background-color: var(--trOdd);
-    border-color:black;
+    border: 1px solid var(--main-border);
     
 }
 
-tr:last-child {
+/* tr:last-child {
     background-color:red;
     
-}
+} */
 
 tr:hover {
     background-color: var(--main-background);
