@@ -1,13 +1,60 @@
+:root{
+    --main-background:#F5F5F5;
+    --header-background:#46494C;
+    --main-font:#4C5C68;
+    --main-border:#868689;
+    --main-header:#DCDCDD;
+    --work-background:#3E616E;
+}
+
+html{
+    height:100%;
+}
+
+* {
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    background-color: var(--main-background);
+    text-align: center;
+
+}
 header{
     display:flex;
     justify-content:space-between;
     padding:15px;
     font-weight:bold;
     font-size:24px;
+    background-color: var(--header-background);
+    color:var(--main-header);
+    margin-bottom:50px;
 }
 
-body{
-    text-align: center;
+section {
+    margin:25px;
+    padding:25px;
+}
+
+
+a {
+    color:var(--main-header);
+    text-decoration: none;
+}
+
+button {
+    background-color: var(--main-header);
+    margin:5px;
+    border-radius:5px;
+    padding:5px;
+
+}
+
+button:hover {
+    background-color:var(--header-background);
+    color:var(--main-header)
 }
 
 .hidden{
@@ -18,6 +65,10 @@ body{
     display:unset;
 }
 
+#welcome button {
+    margin:25px;
+}
+
 #questions {
     width:25%;
     margin-left:auto;
@@ -26,4 +77,39 @@ body{
 
 #questions button {
     display: block;
+    padding: 5px 10px 5px 10px;
+}
+
+
+
+
+
+table{
+    border-collapse: collapse;
+}
+
+th {
+    background-color:red;
+
+}
+th, td {
+    padding:5px;
+}
+
+tr{
+    background-color:salmon;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+tr:nth-child(odd) {
+    background-color: #30dfdf;
+    border-color:black;
+    
+}
+
+tr:hover {background-color: yellow;}
+
+.leaderboard-header {
+    justify-content:center;
+    
 }
