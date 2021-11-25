@@ -259,18 +259,18 @@ function init() {
 // Keydown event to prevent numeric and special characters from being submitted to leaderboard
 initials.addEventListener('keydown', function (event) {
     // Access value of pressed key with key property
-    
     var key = event.key;
     var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-        
+    
     if (alphabetNumericCharacters.includes(key)) {
     
         initials.textContent += event.key;
-    
-    } 
-    else if (event.key === "Backspace") {
 
+    } 
+    else if (key === "Backspace" || key === "Enter") {
+        // perform normal backspace or enter keydown action.
     } else (event.preventDefault())
+    // This last 'else' conditional prevents the default aciton of keydown press for numbers and special characters to enter the key value into the input area.
 
   });
 
