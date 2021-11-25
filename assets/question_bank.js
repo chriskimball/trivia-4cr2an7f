@@ -1,6 +1,7 @@
 // Array of Questions
 var questions = [
-    {
+    {   
+        
         questionName: "What color is the sky?",
         answerOptions: [
             "Blue",

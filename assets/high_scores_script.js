@@ -56,12 +56,9 @@ function renderLeaderboard() {
 function clearLeaderboard () {
     leaderboard = []
     leaderboardEl.children[1].innerHTML = "";
-    console.log(leaderboard)
     
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
-    console.log(leaderboard)
-    renderLeaderboard()
-   
+    renderLeaderboard()  
 }
 
 init()
