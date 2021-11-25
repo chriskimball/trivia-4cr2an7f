@@ -25,15 +25,8 @@ var timer;
 var timeLeft;
 var finalScore;
 
-// test one thing at a time, e.g. button click console log button click
-// every step forward console log it and make sure you are hitting that step then move to next forward
 
-// global variables
-
-// TODO: Pointers to HTML elements
-
-// TODO: fill out question bank
-// array of objects
+// Array of Questions
 var questions = [
     {
         questionName: "What color is the sky?",
@@ -43,7 +36,6 @@ var questions = [
             "Alert",
             "Number"
         ],
-        // refers to array index 0 above it
         correctAnswer: "Blue"
     },
     {
@@ -54,7 +46,6 @@ var questions = [
             "Yellow",
             "Plad"
         ],
-        // refers to array index 1 above it
         correctAnswer: "Red"
     },
     {
@@ -65,7 +56,6 @@ var questions = [
             "3",
             "12"
         ],
-        // refers to array index 1 above it
         correctAnswer: "12"
     },
     {
@@ -76,7 +66,6 @@ var questions = [
             "Alert",
             "Number"
         ],
-        // refers to array index 0 above it
         correctAnswer: "Blue"
     },
     {
@@ -87,7 +76,6 @@ var questions = [
             "Yellow",
             "Plad"
         ],
-        // refers to array index 1 above it
         correctAnswer: "Red"
     },
     {
@@ -98,7 +86,6 @@ var questions = [
             "3",
             "12"
         ],
-        // refers to array index 1 above it
         correctAnswer: "12"
     }
 ]
