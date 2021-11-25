@@ -1,10 +1,11 @@
 // declaring global variables
 var welcomeEl = document.getElementById('welcome')
 var questionsEl = document.getElementById('questions');
+var feedbackEl = document.getElementById('feedback');
 var timerEl = document.getElementById('timer');
 var scoreLogEl = document.getElementById('score-logger');
 var initials = document.getElementById('initials')
-document.getElementById('initials').setAttribute('maxlength',3)
+initials.setAttribute('maxlength',3)
 var finalScoreEl = document.getElementById('score-value')
 var correctEl = document.getElementById('correctly-answered')
 var finalTimeEl = document.getElementById('final-time')
@@ -23,9 +24,9 @@ var questionIndexPointer = 0;
 var answer = undefined;
 var timer;
 var timeLeft;
+var feedbackTimeLeft
+var feedbackTimer
 var finalScore;
-
-
 
 function startTimer() {
     timeLeft = 100;
@@ -74,7 +75,7 @@ function renderNextQuestion() {
 
 // This function will handle serving the next question and increment score
 function answerQuestion(event) {
-    
+    clearInterval(feedbackTimer)
     // checks to make sure user clicks a button, if not a button then the next question will be rendered
     if (!event.target.matches("button")){
         return
@@ -86,7 +87,9 @@ function answerQuestion(event) {
     // Comparing user's answer that was selected to the correct answer
     if (buttonEl.textContent === currentQuestion.correctAnswer) {
         correct++;
+        answerFeedback("right")
     } else {
+        answerFeedback("wrong")
         // This if logic handles decreasing the time left when incorrect answer has been picked.
         if ( timeLeft > 10 ){
             timeLeft= timeLeft-10;
@@ -108,6 +111,41 @@ function answerQuestion(event) {
     }
     
     renderNextQuestion()
+}
+
+function startFeedbackTimer() {
+        
+    feedbackTimeLeft = 3;
+    
+    feedbackTimer = setInterval(function () {
+        feedbackTimeLeft--;
+  
+      if (feedbackTimeLeft <= 0) {
+        clearInterval(feedbackTimer);
+        feedbackTimeLeft=0
+        feedbackEl.className="hidden"
+      }
+   
+    }, 1000);
+    
+}
+
+function answerFeedback(rightOrWrong){
+
+    if (rightOrWrong === "right") {
+        
+        feedbackEl.className="displayed"
+        feedbackEl.innerHTML=`<h2>Correct!</h2>`
+        feedbackEl.setAttribute("style", "color:green");
+        startFeedbackTimer()
+    } else {
+        console.log("incorrect")
+        startFeedbackTimer()
+        feedbackEl.className="displayed"
+        feedbackEl.innerHTML=`<h2>Wrong!</h2>`
+        feedbackEl.setAttribute("style", "color:red");
+}
+
 }
 
 // This function stop the timer, hide question, display leaderboard input
@@ -134,7 +172,6 @@ function backToWelcome() {
     
 }
 
-// TODO: Activity 26 from saturday has helpful info
 function submitLeaderboard(event) {
     if (!event.target.matches("button")){
         return
@@ -164,24 +201,14 @@ function submitLeaderboard(event) {
 
 // Initial actions on page load
 function init() {
-    // TODO: What is the purpose of the following line of code?
     // this will parse the todo array from local storage from string into an array
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
-    // TODO: Describe the functionality of the following `if` statement.
     // if local storage is not blank then it will set the stored todos to the todos variable
     if (leaderboard !== null) {
       leaderboard = leaderboard;
     }
 
-    // TODO: Describe the purpose of the following line of code.
-    // runs the render todo function which will display your todo array on the page
-    // renderTodos();
-    console.log(leaderboard)
   }
-
-
-// when we click button, start interval timeLeft, serve question 1
-// withinGame function that resets global timer and score variables to their initial values
 
 // Keydown event to prevent numeric and special characters from being submitted to leaderboard
 initials.addEventListener('keydown', function (event) {
