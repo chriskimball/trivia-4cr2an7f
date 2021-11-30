@@ -14,7 +14,7 @@ function init() {
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     
     if (leaderboard===null) {
-        return
+        return leaderboard = []
     }
     // This will sort the leaderboard table by the total score
     leaderboard.sort(function(a, b){
