@@ -1,7 +1,6 @@
 // Array of Questions
 var questions = [
     {   
-
         questionName: "What is the tallest mountain in Washington State?",
         answerOptions: [
             "Mount Rainier",
@@ -103,7 +102,6 @@ var questions = [
         correctAnswer: "Reinhold Messner and Peter Habeler"
     }
 ]
-
 
 
 window.questionBank = questions
