@@ -2,248 +2,106 @@
 var questions = [
     {   
 
-        questionName: "What color is the sky?",
+        questionName: "What is the tallest mountain in Washington State?",
         answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
+            "Mount Rainier",
+            "Mount Baker",
+            "Mount Adams",
+            "Glacier Peak"
         ],
-        correctAnswer: "Blue"
+        correctAnswer: "Mount Rainier"
     },
     {
-        questionName: "What is your favorite color?",
+        questionName: "How tall is the tallest mountain in Washington State?",
         answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
+            "12,276	feet",
+            "14,411 feet",
+            "10,781 feet",
+            "10,520 feet"
         ],
-        correctAnswer: "Red"
+        correctAnswer: "14,411 feet"
     },
     {
-        questionName: "How many people have landed on the moon?",
+        questionName: "What is the tallest mountain in North America",
         answerOptions: [
-            "12",
-            "2",
-            "3",
-            "122"
+            "Mount Logan",
+            "Mount Whitney",
+            "Denali",
+            "Mount Rainier"
         ],
-        correctAnswer: "12"
+        correctAnswer: "Denali"
     },
     {
-        questionName: "What color is the sky?",
+        questionName: "What was the first year the Matterhorn was climbed?",
         answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
+            "1937",
+            "1744",
+            "1908",
+            "1865"
         ],
-        correctAnswer: "Blue"
+        correctAnswer: "1865"
     },
     {
-        questionName: "What is your favorite color?",
+        questionName: "What is the tallest mountain in South America",
         answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
+            "Aconcagua",
+            "Siula Grande",
+            "Ojos del Salado",
+            "Fitz Roy"
         ],
-        correctAnswer: "Red"
+        correctAnswer: "Aconcagua"
     },
     {
-        questionName: "How many people have landed on the moon?",
+        questionName: "How tall is the tallest mountain in the world?",
         answerOptions: [
-            "12",
-            "2",
-            "3",
-            "122"
+            "28,261 feet",
+            "29,032 feet",
+            "28,169 feet",
+            "27,940 feet"
         ],
-        correctAnswer: "12"
+        correctAnswer: "29,032 feet"
     },
     {   
 
-        questionName: "What color is the sky?",
+        questionName: "How many mountains are taller than 8000 meters (~26,000 feet)?",
         answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
+            "22",
+            "35",
+            "14",
+            "9"
         ],
-        correctAnswer: "Blue"
+        correctAnswer: "14"
     },
     {
-        questionName: "What is your favorite color?",
+        questionName: "What year was Mount Everest first climbed?",
         answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
+            "1936",
+            "1975",
+            "1924",
+            "1953"
         ],
-        correctAnswer: "Red"
+        correctAnswer: "1953"
     },
     {
-        questionName: "How many people have landed on the moon?",
+        questionName: "What is the tallest unclimbed mountain in the world?",
         answerOptions: [
-            "12",
-            "2",
-            "3",
-            "121"
+            "Gangkhar Puensum, Bhutan, 24,836 feet",
+            "Muchu Chhish, Pakistan, 24,452 feet",
+            "Summa Ri I, Pakistan, 23,957 feet",
+            "Lapche Kang III, China, 23,786 feet"
         ],
-        correctAnswer: "12"
+        correctAnswer: "Gangkhar Puensum, Bhutan, 24,836 feet"
     },
     {
-        questionName: "What color is the sky?",
+        questionName: "Who was the first person(s) to climb Mount Everest without supplemental oxygen?",
         answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
+            "Ed Viesturs",
+            "Reinhold Messner and Peter Habeler",
+            "Ueli Steck",
+            "Edmund Hillary"
         ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "12",
-            "2",
-            "3",
-            "11"
-        ],
-        correctAnswer: "12"
-    },
-    {   
-
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "12",
-            "2",
-            "3",
-            "11"
-        ],
-        correctAnswer: "12"
-    },
-    {
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "12",
-            "2",
-            "3",
-            "11"
-        ],
-        correctAnswer: "12"
-    },
-    {   
-
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "12",
-            "2",
-            "3",
-            "11"
-        ],
-        correctAnswer: "12"
-    },
-    {
-        questionName: "What color is the sky?",
-        answerOptions: [
-            "Blue",
-            "Red",
-            "Alert",
-            "Number"
-        ],
-        correctAnswer: "Blue"
-    },
-    {
-        questionName: "What is your favorite color?",
-        answerOptions: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Plad"
-        ],
-        correctAnswer: "Red"
-    },
-    {
-        questionName: "How many people have landed on the moon?",
-        answerOptions: [
-            "12",
-            "2",
-            "3",
-            "1"
-        ],
-        correctAnswer: "12"
-    },
+        correctAnswer: "Reinhold Messner and Peter Habeler"
+    }
 ]
 
 
