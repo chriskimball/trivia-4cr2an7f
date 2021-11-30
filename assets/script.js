@@ -202,7 +202,7 @@ function submitLeaderboard(event) {
         };
         
         // Adding the user stats object we just captured into the leaderboard array
-        leaderboard = leaderboard.concat(userStats);
+        leaderboard = leaderboard.push(userStats);
 
         // Saving the updated leaderboard array to local storage 
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
