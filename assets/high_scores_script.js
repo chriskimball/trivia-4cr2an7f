@@ -36,7 +36,7 @@ function renderLeaderboard() {
         
         //back ticks for template literals is key
         htmlTemplateString += `
-        <tr>
+        <tr class="leaderboard-list">
         <td>${leaderboard[i].initials}</td>
         <td>${leaderboard[i].timeLeft}</td>
         <td>${leaderboard[i].answeredCorrectly}</td>

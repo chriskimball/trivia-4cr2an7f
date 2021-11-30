@@ -118,17 +118,13 @@ tr:nth-child(odd) {
     
 }
 
-tr:hover {
+.leaderboard-list:hover {
     background-color: var(--header-background);
     color: var(--main-header);
     transform: scale(1.2);
     transition:all .5s ease-in-out;
 } 
 
-th:hover {
-    background-color: var(--main-background);
-    color:var(--main-font);
-}
 
 .leaderboard-header {
     justify-content:center;
