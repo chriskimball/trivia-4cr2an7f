@@ -8,6 +8,7 @@
     <title>Mountain Quiz</title>
 </head>
 <body>
+    <!-- Header element that contains a link to High Scores page, and the game timer -->
     <header>
         <h1>
             <a href="high_scores.html">High Scores</a>
@@ -16,14 +17,16 @@
             Time Left: <span id="timer">100</span>
         </h3>
     </header>
+    <!-- Main content element -->
     <main>
+        <!-- Welcome message and start game button -->
         <section id="welcome">
             <h2>Mountain Quiz.</h2>
             <p>This quiz will test your knowledge on famous mountains around the world.</p>
             <button id="start-button">Start Quiz</button>
         </section>
         
-        <!-- add the click event to the div -->
+        <!-- Questions element that is hidden by default -->
         <section id="questions" class="hidden">
                 <h2>PlaceholderText</h2>
                 <button id="button1">PlaceholderText</button>
@@ -31,7 +34,11 @@
                 <button id="button3">PlaceholderText</button>
                 <button id="button4">PlaceholderText</button>
         </section>
+
+        <!-- Question feedback element that displays whether user answered correct or incorrect -->
         <div id="feedback"></div>
+
+        <!-- Results/leaderboard entry element -->
         <section>
             <form id="score-logger" class="hidden">
                 <h2>All Done!</h2>
