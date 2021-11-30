@@ -155,7 +155,6 @@ function answerFeedback(rightOrWrong){
         feedbackEl.setAttribute("style", "color:red");
     }
 }
-
 // This function stop the timer, hide questions element, and display leaderboard input
 function endGame() {
     // This handles calculating the final score (Total answered correctly * Time Left), if Time Left = 0 then total answered correctly will be the final score (adds another layer of scoring by correct/speed)
@@ -200,7 +199,6 @@ function submitLeaderboard(event) {
             answeredCorrectly: correct,
             totalScore: finalScore
         };
-        
         // Adding the user stats object we just captured into the leaderboard array
         leaderboard = leaderboard.concat(userStats);
 
@@ -217,9 +215,9 @@ function init() {
     // This will parse the todo array from local storage from string into an array
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     
-    // If local storage is not blank then it will set the stored todos to the todos variable
-    if (leaderboard !== null) {
-      leaderboard = leaderboard;
+    // If local storage is blank then it will set the leaderboard to a blank array
+    if (leaderboard.length === 0) {
+      leaderboard = [];
     }
 
 }
