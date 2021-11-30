@@ -216,7 +216,7 @@ function init() {
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     
     // If local storage is blank then it will set the leaderboard to a blank array
-    if (leaderboard.length === 0) {
+    if (leaderboard.length === 0 || leaderboard === null) {
       leaderboard = [];
     }
 
