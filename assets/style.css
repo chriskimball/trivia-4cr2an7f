@@ -1,3 +1,4 @@
+/* Setting CSS variables */
 :root{
     --main-background:#F5F5F5;
     --header-background:#46494C;
@@ -10,21 +11,27 @@
     --trOdd:#DCDCDD;
 }
 
+/* Sets the root html page to 100% height */
 html{
     height:100%;
 }
 
+/* Global styling reset */
 * {
     margin:0px;
     padding:0px;
     box-sizing: border-box;
 }
+
+/* Main body styling */
 body{
     height: 100%;
     background-color: var(--main-background);
     text-align: center;
 
 }
+
+/* Header styling */
 header{
     display:flex;
     justify-content:space-between;
@@ -37,16 +44,19 @@ header{
     margin-bottom:50px;
 }
 
+/* Section styling */
 section {
     width:100%;
+    color:var(--main-font)
 }
 
-
+/* Link styling */
 a {
     color:var(--main-header);
     text-decoration: none;
 }
 
+/* Main button styling */
 button {
     background-color: var(--main-header);
     margin:5px;
@@ -60,39 +70,12 @@ button:hover {
     color:var(--main-header)
 }
 
-.hidden{
-    display:none;
-}
-
-.displayed{
-    display:unset;
-}
-
-#welcome button {
-    margin:25px;
-}
-
-#questions {
-    width:400px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-#questions h2 {
-    margin-bottom:25px;
-}
-
-#questions button {
-    display: block;
-    padding: 5px 10px 5px 10px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
+/* Styling for the form child elements */
 form h2, form p {
     padding:5px;
 }
 
+/* Leaderboard table styling */
 table{
     border-collapse: collapse;
     font-size:24px;
@@ -118,6 +101,7 @@ tr:nth-child(odd) {
     
 }
 
+/* Hover effects over leaderboard list items (not the header row) */
 .leaderboard-list:hover {
     background-color: var(--header-background);
     color: var(--main-header);
@@ -125,12 +109,45 @@ tr:nth-child(odd) {
     transition:all .5s ease-in-out;
 } 
 
-
+/* Centers the leaderboard header element */
 .leaderboard-header {
-    justify-content:center;
-    
+    justify-content:center; 
 }
 
+/* Hidden class handles hiding html elements on page */
+.hidden{
+    display:none;
+}
+
+/* Displayed class handles displaying html elements on page */
+.displayed{
+    display:unset;
+}
+
+/* Welcome button custom styling */
+#welcome button {
+    margin:25px;
+}
+
+/* Custom styling for the questions element and child elements */
+#questions {
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#questions h2 {
+    margin-bottom:25px;
+}
+
+#questions button {
+    display: block;
+    padding: 5px 10px 5px 10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Question feedback styling and positioning */
 #feedback {
     width:50%;
     position: absolute;
